@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-transform-object-destructuring-to-dot-notation",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "Replaces identifiers from a destructured object by object dot notation",
   "main": "lib/index.js",
   "files": [
