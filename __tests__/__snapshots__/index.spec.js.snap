@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`does not transform code without name option 1`] = `
+"const {
+  foo
+} = myObject;"
+`;
+
+exports[`does not transform properties from different scope 1`] = `
+"function baz() {
+  const {
+    foo
+  } = anotherObject;
+  console.log(foo);
+  console.log(myObject.fiz);
+  const bar = anotherObject.bar;
+  console.log(bar);
+}"
+`;
+
+exports[`transforms properties from destructured object to dot notation 1`] = `
+"console.log(myObject.foo);
+console.log(myObject.bar);"
+`;
