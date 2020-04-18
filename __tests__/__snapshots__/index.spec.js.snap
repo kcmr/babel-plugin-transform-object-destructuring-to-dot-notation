@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`does not transform code without name option 1`] = `
+exports[`does not transform code without objects option 1`] = `
 "const {
   foo
 } = myObject;"
@@ -21,4 +21,9 @@ exports[`does not transform properties from different scope 1`] = `
 exports[`transforms properties from destructured object to dot notation 1`] = `
 "console.log(myObject.foo);
 console.log(myObject.bar);"
+`;
+
+exports[`transforms properties from multiple objects 1`] = `
+"console.log(objOne.foo);
+console.log(objTwo.bar);"
 `;

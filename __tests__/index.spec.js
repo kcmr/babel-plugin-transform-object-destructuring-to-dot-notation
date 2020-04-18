@@ -16,7 +16,7 @@ it('transforms properties from destructured object to dot notation', () => {
     console.log(bar);
   `;
 
-  const result = transformFixture(code, { name: 'myObject' });
+  const result = transformFixture(code, { objects: ['myObject'] });
   expect(result).toMatchSnapshot();
 });
 
@@ -34,11 +34,24 @@ it('does not transform properties from different scope', () => {
     }
   `;
 
-  const result = transformFixture(code, { name: 'myObject' });
+  const result = transformFixture(code, { objects: ['myObject'] });
   expect(result).toMatchSnapshot();
 });
 
-it('does not transform code without name option', () => {
+it('transforms properties from multiple objects', () => {
+  const code = `
+    const { foo } = objOne;
+    console.log(foo);
+
+    const { bar } = objTwo;
+    console.log(bar);
+  `;
+
+  const result = transformFixture(code, { objects: ['objOne', 'objTwo'] });
+  expect(result).toMatchSnapshot();
+});
+
+it('does not transform code without objects option', () => {
   const code = 'const { foo } = myObject';
   const result = transformFixture(code);
 
