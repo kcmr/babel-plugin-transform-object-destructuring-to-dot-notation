@@ -8,7 +8,7 @@
 
 # babel-plugin-transform-object-destructuring-to-dot-notation
 
-Replaces identifiers from a destructured object by the corresponding object dot notation.   
+Replaces identifiers from a destructured object by its object dot notation.   
 
 **Input:**
 
@@ -38,7 +38,7 @@ npm i babel-plugin-transform-object-destructuring-to-dot-notation
 {
   "plugins": [
     ["babel-plugin-transform-object-destructuring-to-dot-notation", {
-      "name": "myObject"
+      "objects": ["myObject"]
     }]
   ]
 }
@@ -49,10 +49,22 @@ npm i babel-plugin-transform-object-destructuring-to-dot-notation
 ```js
 require('@babel/core').transform('code', {
   plugins: ['babel-plugin-transform-object-destructuring-to-dot-notation', {
-    name: 'myObject'
+    objects: ['myObject']
   }],
 });
 ```
+
+## Options
+
+### `objects`
+
+`Array`, defaults to `undefined`.
+
+e.g. `['babel-plugin-transform-object-destructuring-to-dot-notation', {
+  objects: ['objectOne', 'objectTwo']
+}]`
+
+List of object names which destructured properties should be transformed to dot notation.
 
 ## License
 
